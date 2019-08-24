@@ -1,0 +1,16 @@
+{% extends 'main_app/base.html' %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-7">
+            <h2>Edit Product</h2>
+            <form action="/admin/edit_product_process/{{ f.id }}" method="POST" enctype="multipart/form-data" id="edit-form">
+                {% csrf_token %}
+                {{ form }}
+                <button style="margin: 15px 0;" type="submit">Submit</button>
+                <a href="/admin/inventory" style="margin-left: 75%" class="btn btn-outline-primary btn-sm">Back to Products</a>
+            </form>
+
+        </div>
+    </div>
+{% endblock %}

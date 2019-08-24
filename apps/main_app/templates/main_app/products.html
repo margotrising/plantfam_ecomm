@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    <!-- <link rel="stylesheet" href="{% static 'main_app/css/style.css' %}"> -->
+    <link rel="stylesheet" href="{% static 'main_app/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'main_app/css/agency.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <!-- <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css"> -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #FEFAF9!important;
+        }
+        .product-wrapper {
+            display: inline-block;
+            vertical-align: top;
+            width: 33%;
+            margin-bottom: 90px;
+        }
+        .product-title {
+            margin-top: 20px;    
+        }
+        .product-wrapper img {
+            width: 100%;
+        }
+        .product-wrapper a {
+            color: black;
+            text-decoration: none;
+        }
+        .product-wrapper a:hover {
+            text-decoration: none;
+            color: black;
+        }
+        .img-hover-zoom--quick-zoom img {
+            transform-origin: 0 .5;
+            transition: transform .25s, visibility .25s ease-in;
+        }
+        .img-hover-zoom--quick-zoom:hover img {
+        transform: scale(2);
+        }
+
+        .img-hover-zoom {
+            width: 325px; /* Modify this according to your need */
+            overflow: hidden; /* Removing this will break the effects */
+        }
+        #product-img img {
+            width: 100%;
+        }
+        #description {
+            text-align: left;
+            margin: 25px 50px;
+            padding-top: 25px;
+        }
+        @media (min-width: 768px) {
+            header.second .intro-text {
+                padding-top: 150px;
+                padding-bottom: 100px;
+            }
+            header.second .intro-text .intro-lead-in {
+                text-align: center;
+                font-size: 40px;
+                font-style: italic;
+                line-height: 40px;
+                margin-bottom: 25px;
+                font-family: 'Droid Serif', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+            }
+        }
+    </style>
+    <title>PlantFam</title>
+</head>
+<body id="page-top">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background-color: #F08080; padding: 0">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="/">PlantFam</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            Menu
+            <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <div class="col-5">
+                    <ul class="navbar-nav text-uppercase ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="/products">What's new</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="/products">Shop</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="/products">Favs</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-4"></div>
+                <div class="3">
+                    <ul class="navbar-nav text-uppercase ml-auto">
+                        {% if request.session.user_id %}
+                        <ul class="navbar-nav text-uppercase ml-auto">
+                            <li class="nav-item" style="display: inline">
+                                <a class="nav-link js-scroll-trigger" href="#">Hi, {{ current_user.first_name }}!</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link js-scroll-trigger" href="/view_account/{{request.session.user_id}}"><i class="far fa-user" id="nav-icon"></i></a>
+                            </li>
+                            {% else %}
+                            <li class="nav-item">
+                                <a class="nav-link js-scroll-trigger" href="/login"><i class="far fa-user" id="nav-icon"></i></a>
+                            </li>
+                            {% endif %}
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="/cart"><i class="fas fa-shopping-basket" id="nav-icon"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <header class="second">
+        <div class="intro-text">
+            <div class="intro-lead-in" style="color: black">Shop Plants</div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="row justify-content-between">
+            {% for p in products %}
+            <div class="product-wrapper">
+                <a href="/products/{{ p.id }}">
+                    <div class="img-hover-zoom img-hover-zoom--quick-zoom">
+                        <img src="{{p.photo.url}}" alt="{{p.product_name}}"/>
+                    </div>
+                </a>
+                <div class="row justify-content-between product-title">
+                    <div class="col-5"><h5 class="font-weight-bold"><a href="/products/{{ p.id }}">{{p.product_name}}</a></h5></div>
+                    <div class="col-5"><h5>${{p.price}}</h5></div>
+                </div>
+            </div>
+            <div class="product-wrapper">
+                <a href="/products/{{ p.id }}">
+                    <div class="img-hover-zoom img-hover-zoom--quick-zoom">
+                        <img src="{{p.photo.url}}" alt="{{p.product_name}}"/>
+                    </div>
+                </a>
+                <div class="row justify-content-between product-title">
+                    <div class="col-5"><h5 class="font-weight-bold"><a href="/products/{{ p.id }}">{{p.product_name}}</a></h5></div>
+                    <div class="col-5"><h5>${{p.price}}</h5></div>
+                </div>
+            </div>
+            <div class="product-wrapper">
+                <a href="/products/{{ p.id }}">
+                    <div class="img-hover-zoom img-hover-zoom--quick-zoom">
+                        <img src="{{p.photo.url}}" alt="{{p.product_name}}"/>
+                    </div>
+                </a>
+                <div class="row justify-content-between product-title">
+                    <div class="col-5"><h5 class="font-weight-bold"><a href="/products/{{ p.id }}">{{p.product_name}}</a></h5></div>
+                    <div class="col-5"><h5>${{p.price}}</h5></div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+        <div class="col-md-4">
+            <span class="copyright">Copyright © Your Website 2019</span>
+        </div>
+        <div class="col-md-4">
+            <ul class="list-inline social-buttons">
+            <li class="list-inline-item">
+                <a href="#">
+                <i class="fab fa-twitter"></i>
+                </a>
+            </li>
+            <li class="list-inline-item">
+                <a href="#">
+                <i class="fab fa-facebook-f"></i>
+                </a>
+            </li>
+            <li class="list-inline-item">
+                <a href="#">
+                <i class="fab fa-linkedin-in"></i>
+                </a>
+            </li>
+            </ul>
+        </div>
+        <div class="col-md-4">
+            <ul class="list-inline quicklinks">
+            <li class="list-inline-item">
+                <a href="#">Privacy Policy</a>
+            </li>
+            <li class="list-inline-item">
+                <a href="#">Terms of Use</a>
+            </li>
+            </ul>
+        </div>
+        </div>
+    </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="{% static 'main_app/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'main_app/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="{% static 'main_app/jquery-easing/jquery.easing.min.js' %}"></script>
+
+    <!-- Contact form JavaScript -->
+    <script src="{% static 'main_app/js/jqBootstrapValidation.js' %}"></script>
+    <script src="{% static 'main_app/js/contact_me.js' %}"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="{% static 'main_app/js/agency.min.js' %}"></script>
+
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    <!-- <link rel="stylesheet" href="{% static 'main_app/css/style.css' %}"> -->
+    <link rel="stylesheet" href="{% static 'main_app/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'main_app/css/agency.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #FEFAF9!important;
+        }
+        div.row {
+            padding: 8px 0 8px 50px;
+        }
+        #bottom-row {
+
+            padding: 30px 8px;
+        }
+        button {
+            margin: 25px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border-spacing: 0;
+            border-color: grey;
+        }
+        thead {
+            border-top: 1px solid #ddd;
+        }
+        th {
+            color: #585858;
+            font-size: 14px;
+            font-weight: 400;
+
+        }
+        td {
+            font-size: 14px;
+            font-weight: 400;
+        }
+        th, td {
+            padding: 20px 5px;
+            text-transform: uppercase;
+            
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+        }
+        img {
+            width: 120px;
+        }
+        td a, td a:hover {
+            appearance: none;
+            color: #585858;
+        }
+        #product-img img {
+            width: 100%;
+        }
+        #description {
+            text-align: left;
+            margin: 25px 50px;
+            padding-top: 25px;
+        }    
+        header.second .intro-text {
+            padding-top: 150px;
+            padding-bottom: 100px;
+        }
+        header.second .intro-text .intro-lead-in {
+            text-align: center;
+            font-size: 40px;
+            font-style: italic;
+            line-height: 40px;
+            margin-bottom: 25px;
+            font-family: 'Droid Serif', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+        }
+    </style>
+    <title>PlantFam</title>
+</head>
+<body id="page-top">
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background-color: #F08080; padding: 0">
+                <div class="container">
+                    <a class="navbar-brand js-scroll-trigger" href="/">PlantFam</a>
+                    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarResponsive">
+                        <div class="col-5">
+                            <ul class="navbar-nav text-uppercase ml-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link js-scroll-trigger" href="/products">What's new</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link js-scroll-trigger" href="/products">Shop</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link js-scroll-trigger" href="/products">Favs</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-4"></div>
+                        <div class="3">
+                            <ul class="navbar-nav text-uppercase ml-auto">
+                                    {% if request.session.user_id %}
+                                <li class="nav-item">
+                                    <a class="nav-link js-scroll-trigger" href="#">Hi, {{ current_user.first_name }}!</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link js-scroll-trigger" href="/view_account/{{request.session.user_id}}"><i class="far fa-user" id="nav-icon"></i></a>
+                                </li>
+                                {% else %}
+                                <li class="nav-item">
+                                    <a class="nav-link js-scroll-trigger" href="/login"><i class="far fa-user" id="nav-icon"></i></a>
+                                </li>
+                                {% endif %}
+                                <li class="nav-item">
+                                    <a class="nav-link js-scroll-trigger" href="/cart"><i class="fas fa-shopping-basket" id="nav-icon"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+    
+
+    <header class="second">
+        <div class="intro-text">
+            <div class="intro-lead-in" style="color: black">Checkout</div>
+        </div>
+    </header>
+
+
+<table>
+    <thead>
+        <tr>
+            <th>PRODUCT</th>
+            <th></th>
+            <th>PRICE</th>
+            <th>QUANTITY</th>
+            <th>SUBTOTAL</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <form action="#" method="post">
+        <tr>
+            <td>
+                <a href="/product/10"><img src="/media/products/photos/zz.jpg" alt="plant"/></a>
+            </td>
+            <td>
+                <h6 style="font-weight: 700">ZZ Plant</h6> 
+            </td>
+            <td><input type="hidden" name="price" value="1">$22.00</td>
+            <td><select name="quantity">
+                    <option value="1">1</option>              
+                    <option value="2">2</option>              
+                    <option value="3">3</option>
+            <td>$22.00</td>
+            <td>
+                <!-- <a href="/remove_product/1"><i class="fas fa-times-circle" id="nav-icon"></i></a> -->
+                <a href="#"><i class="fas fa-times-circle" id="nav-icon"></i></a>
+            </td>
+        </tr>
+        
+        
+    </tbody>
+    <!-- <tbody>
+        <form action="/checkout_process" method="post">
+        {% csrf_token %}
+        {% for p in request.session.cart%}
+        <tr>
+            <td>
+                <a href="/product/{{p.id}}"><img src="{{p.photo.url}}" alt="{{p.product_name}}"/></a>
+            </td>
+            <td>
+                <h6 style="font-weight: 700">{{p.product_name}}</h6> 
+            </td>
+            <td><input type="hidden" name="price" value="{{product.id}}">${{p.price}}</td>
+            <td><select name="quantity">
+                    <option value="1">1</option>              
+                    <option value="2">2</option>              
+                    <option value="3">3</option>
+            <td>${{p.price}}</td>
+            <td>
+                <a href="/remove_product/{{p.id}}"><i class="fas fa-times-circle" id="nav-icon"></i></a>
+            </td>
+        </tr>
+        {% endfor %}
+        
+        
+    </tbody> -->
+</table>
+
+<div class="row" id="bottom-row">
+    <div class="col-7"></div>
+    <div class="col-4" style="text-align: right">
+        <h4 STYLE="font-weight: 700">$22.00</h4>
+        <p style=" padding: 25px 0">Shipping not included</p>
+        <p style="color: grey; font-size: 14px">All orders are processed in shop's currency, which is USD. The content of your cart may be displayed in another currency, at the most current exchange rate.</p>
+        <div class="button-wrapper">
+            <button type="submit">CHECKOUT</button>
+        </div>
+    </div>
+        </form>
+</div>
+</form>
+
+
+
+
+
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+        <div class="col-md-4">
+            <span class="copyright">Copyright © Your Website 2019</span>
+        </div>
+        <div class="col-md-4">
+            <ul class="list-inline social-buttons">
+            <li class="list-inline-item">
+                <a href="#">
+                <i class="fab fa-twitter"></i>
+                </a>
+            </li>
+            <li class="list-inline-item">
+                <a href="#">
+                <i class="fab fa-facebook-f"></i>
+                </a>
+            </li>
+            <li class="list-inline-item">
+                <a href="#">
+                <i class="fab fa-linkedin-in"></i>
+                </a>
+            </li>
+            </ul>
+        </div>
+        <div class="col-md-4">
+            <ul class="list-inline quicklinks">
+            <li class="list-inline-item">
+                <a href="#">Privacy Policy</a>
+            </li>
+            <li class="list-inline-item">
+                <a href="#">Terms of Use</a>
+            </li>
+            </ul>
+        </div>
+        </div>
+    </div>
+    </footer>
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="{% static 'main_app/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'main_app/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="{% static 'main_app/jquery-easing/jquery.easing.min.js' %}"></script>
+
+    <!-- Contact form JavaScript -->
+    <script src="{% static 'main_app/js/jqBootstrapValidation.js' %}"></script>
+    <script src="{% static 'main_app/js/contact_me.js' %}"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="{% static 'main_app/js/agency.min.js' %}"></script>
+
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+
+</body>
+</html>

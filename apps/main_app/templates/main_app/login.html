@@ -1,0 +1,357 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    <!-- <link rel="stylesheet" href="{% static 'main_app/css/style.css' %}"> -->
+    <link rel="stylesheet" href="{% static 'main_app/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'main_app/css/agency.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+
+
+
+    <style>
+        body {
+            background-color: #FEFAF9!important;
+        }
+
+        .footer .list-inline-item a:link {
+            color: black;
+        }
+        .section-heading {
+            font-family: Droid Serif;
+            font-style: italic;
+        }
+        .float-label-control, .plant-form { position: relative; margin-bottom: 1.5em; }
+        .float-label-control ::-webkit-input-placeholder { color: transparent; }
+        .float-label-control :-moz-placeholder { color: transparent; }
+        .float-label-control ::-moz-placeholder { color: transparent; }
+        .float-label-control :-ms-input-placeholder { color: transparent; }
+        .float-label-control input:-webkit-autofill,
+        .float-label-control textarea:-webkit-autofill { background-color: transparent !important; -webkit-box-shadow: 0 0 0 1000px white inset !important; -moz-box-shadow: 0 0 0 1000px white inset !important; box-shadow: 0 0 0 1000px white inset !important; }
+        .float-label-control input, .float-label-control textarea, .float-label-control label { font-size: 1.3em; box-shadow: none; -webkit-box-shadow: none; }
+        .float-label-control input:focus,
+        .float-label-control textarea:focus { box-shadow: none; -webkit-box-shadow: none; border-bottom-width: 2px; padding-bottom: 0; }
+        .float-label-control textarea:focus { padding-bottom: 4px; }
+        .float-label-control input, .float-label-control textarea { display: block; width: 100%; padding: 0.1em 0em 1px 0em; border: none; border-radius: 0px; border-bottom: 1px solid #aaa; outline: none; margin: 0px; background: none; }
+        .float-label-control textarea { padding: 0.1em 0em 5px 0em; }
+        .float-label-control label { position: absolute; font-weight: normal; top: -1.0em; left: 0.08em; color: #aaaaaa; z-index: -1; font-size: 0.85em; -moz-animation: float-labels 300ms none ease-out; -webkit-animation: float-labels 300ms none ease-out; -o-animation: float-labels 300ms none ease-out; -ms-animation: float-labels 300ms none ease-out; -khtml-animation: float-labels 300ms none ease-out; animation: float-labels 300ms none ease-out; /* There is a bug sometimes pausing the animation. This avoids that.*/ animation-play-state: running !important; -webkit-animation-play-state: running !important; }
+        .float-label-control input.empty + label,
+        .float-label-control textarea.empty + label { top: 0.1em; font-size: 1.5em; animation: none; -webkit-animation: none; }
+        .float-label-control input:not(.empty) + label,
+        .float-label-control textarea:not(.empty) + label { z-index: 1; }
+        .float-label-control input:not(.empty):focus + label,
+        .float-label-control textarea:not(.empty):focus + label { color: #aaaaaa; }
+        .float-label-control.label-bottom label { -moz-animation: float-labels-bottom 300ms none ease-out; -webkit-animation: float-labels-bottom 300ms none ease-out; -o-animation: float-labels-bottom 300ms none ease-out; -ms-animation: float-labels-bottom 300ms none ease-out; -khtml-animation: float-labels-bottom 300ms none ease-out; animation: float-labels-bottom 300ms none ease-out; }
+        .float-label-control.label-bottom input:not(.empty) + label,
+        .float-label-control.label-bottom textarea:not(.empty) + label { top: 3em; }
+
+
+        @keyframes float-labels {
+            0% { opacity: 1; color: #aaa; top: 0.1em; font-size: 1.5em; }
+            20% { font-size: 1.5em; opacity: 0; }
+            30% { top: 0.1em; }
+            50% { opacity: 0; font-size: 0.85em; }
+            100% { top: -1em; opacity: 1; }
+        }
+
+        @-webkit-keyframes float-labels {
+            0% { opacity: 1; color: #aaa; top: 0.1em; font-size: 1.5em; }
+            20% { font-size: 1.5em; opacity: 0; }
+            30% { top: 0.1em; }
+            50% { opacity: 0; font-size: 0.85em; }
+            100% { top: -1em; opacity: 1; }
+        }
+
+        @keyframes float-labels-bottom {
+            0% { opacity: 1; color: #aaa; top: 0.1em; font-size: 1.5em; }
+            20% { font-size: 1.5em; opacity: 0; }
+            30% { top: 0.1em; }
+            50% { opacity: 0; font-size: 0.85em; }
+            100% { top: 3em; opacity: 1; }
+        }
+
+        @-webkit-keyframes float-labels-bottom {
+            0% { opacity: 1; color: #aaa; top: 0.1em; font-size: 1.5em; }
+            20% { font-size: 1.5em; opacity: 0; }
+            30% { top: 0.1em; }
+            50% { opacity: 0; font-size: 0.85em; }
+            100% { top: 3em; opacity: 1; }
+        }
+
+        input {
+
+            width: 100%;
+            padding: 14px 15px 15px 15px;
+            color: inherit;
+            border: 1px solid #ddd;
+            border-radius: 2px;
+            font-size: 14px;
+            background: #fff;
+            -webkit-appearance: none;
+        }
+
+        .plant-form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+            
+        #btn-link {
+            color: white;
+        }
+
+        .gHover {
+            position:relative; /* To animate the `top` position */
+            display:block;
+            width:300px;
+            margin:100px auto;
+            background-color:black;
+            border: 8px solid #DEDBDA;
+            border-radius: 5px;
+            
+        }
+        @media (min-width: 768px) {
+            header.second .intro-text {
+                padding-top: 150px;
+                padding-bottom: 100px;
+            }
+            header.second .intro-text .intro-lead-in {
+                text-align: center;
+                font-size: 40px;
+                font-style: italic;
+                line-height: 40px;
+                margin-bottom: 25px;
+                font-family: 'Droid Serif', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+            }
+        }
+        .login-errors, .register-errors {
+            color: red;
+            list-style: none;
+            text-align: center;
+        }
+    
+    </style>
+
+    <title>PlantFam</title>
+</head>
+<body id="page-top">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background-color: #F08080; padding: 0">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="/">PlantFam</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            Menu
+            <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <div class="col-5">
+                    <ul class="navbar-nav text-uppercase ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="/products">What's new</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="/products">Shop</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="/products">Favs</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-4"></div>
+                <div class="3">
+                    <ul class="navbar-nav text-uppercase ml-auto">
+                            {% if request.session.user_id %}
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="#">Hi, {{ current_user.first_name }}!</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="/view_account"><i class="far fa-user" id="nav-icon"></i></a>
+                        </li>
+                        {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="/login"><i class="far fa-user" id="nav-icon"></i></a>
+                        </li>
+                        {% endif %}
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="/cart"><i class="fas fa-shopping-basket" id="nav-icon"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="second">
+        <div class="intro-text">
+            <div class="intro-lead-in" style="color: black">Login</div>
+        </div>
+    </header>
+
+    <div class="container">        
+
+        <div class="col" style="margin: 0 auto">
+            <section class="login-form" style="padding-top: 0">
+
+                <form method="post" action="/login_process" class="plant-form" accept-charset="UTF-8" class="form--shrinked"><input type="hidden" name="form_type" value="customer_login">
+                    {% csrf_token %}
+                    {% if messages %}
+                    <ul class="login-errors">
+                        {% for message in messages %}
+                        {% if "error-login" in message.tags %}
+                        
+                        <li{% if message. %} class="{{ message.extra_tags }}"{% endif %}>
+                            {{ message }}
+                        </li>
+                        {% endif %}
+                    {% endfor %}
+                    </ul>
+                    {% endif %}
+                <div class="form-group ">
+                    <label class="form-label" for="customer__email">EMAIL</label>
+                    <input type="email" id="customer__email" name="login-email" required="required" tabindex="1">
+                </div>
+        
+                <div class="form-group ">
+                    <label class="form-label" for="customer__password">
+                    PASSWORD
+                    </label>
+                    <input type="password" id="customer__password" name="login-pass" required="required" tabindex="2">
+                </div>
+        
+                <div class="button-wrapper" style="text-align: center">
+                    <button type="submit">LOGIN</button>
+                </div>
+                </form>
+
+            </section>
+        </div>
+    </div>
+    
+    <div id="register-now" class="col" style="margin: 0 auto; background-color: #F3F3F2; padding: 25px 0">
+        <div class="button-wrapper" style="text-align: center">
+            Not a member yet?  <button id="register-btn" style="margin-left: 20px; padding: 15px 40px 16px 40px; background-color: #9D9D9D">REGISTER NOW</button>
+        </div>
+    </div>
+
+
+    <div id="registration" style="display: none; padding-bottom: 100px">
+        <header class="second">
+            <div class="intro-text" style="padding-top: 0">
+                <div class="intro-lead-in" style="color: black">Create Account</div>
+            </div>
+        </header>
+        {% if messages %}
+        <ul class="register-errors">
+            {% for message in messages %}
+            {% if "register" in message.tags %}
+            <li{% if message. %} class="{{ message.extra_tags }}"{% endif %}>
+                {{ message }}
+            </li>
+            {% endif %}
+        {% endfor %}
+        </ul>
+        {% endif %}
+            <form method="post" action="/register_process" class="plant-form" accept-charset="UTF-8" class="form--shrinked"><input type="hidden" name="form_type" value="customer_login">
+                {% csrf_token %}
+            <div class="form-group">
+                <label class="form-label" for="">FIRST NAME</label>
+                <input type="text" name="reg-fname" required="required" tabindex="1">
+            </div>
+            <div class="form-group ">
+                <label class="form-label" for="">LAST NAME</label>
+                <input type="text" name="reg-lname" required="required" tabindex="1">
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="customer__email">EMAIL</label>
+                <input type="email" name="reg-email" required="required" tabindex="1">
+            </div>
+            <div class="form-group ">
+                <label class="form-label" for="customer__password">PASSWORD</label>
+                <input type="password"  name="reg-pass" required="required" tabindex="2">
+            </div>
+            <div class="form-group ">
+                <label class="form-label" for="customer__password">CONFIRM PASSWORD</label>
+                <input type="password" name="reg-cpass" required="required" tabindex="2">
+            </div>
+
+            <div class="button-wrapper" style="text-align: center">
+                <button type="submit">REGISTER</button>
+            </div>
+            </form>
+
+        </section>
+    </div>
+    
+
+    <footer class="footer" style="padding-bottom: 35px">
+        <div class="container">
+            <div class="row">
+            <div class="col-md-4">
+                <span class="copyright">Copyright © Your Website 2019</span>
+            </div>
+            <div class="col-md-4">
+                <ul class="list-inline social-buttons">
+                <li class="list-inline-item">
+                    <a href="#">
+                    <i style="margin-top: 15px;" class="fab fa-twitter"></i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a href="#" >
+                    <i  style="margin-top: 15px;" class="fab fa-facebook-f" ></i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a href="#">
+                    <i style="margin-top: 15px;" class="fab fa-linkedin-in"></i>
+                    </a>
+                </li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <ul class="list-inline quicklinks">
+                <li class="list-inline-item">
+                    <a style="color: black" href="#">Privacy Policy</a>
+                </li>
+                <li class="list-inline-item">
+                    <a style="color: black" href="#">Terms of Use</a>
+                </li>
+                </ul>
+            </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="{% static 'main_app/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'main_app/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="{% static 'main_app/jquery-easing/jquery.easing.min.js' %}"></script>
+
+    <!-- Contact form JavaScript -->
+    <script src="{% static 'main_app/js/jqBootstrapValidation.js' %}"></script>
+    <script src="{% static 'main_app/js/contact_me.js' %}"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="{% static 'main_app/js/agency.min.js' %}"></script>
+    <script src="{% static 'main_app/js/agency.js' %}"></script>
+
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+ 
+</body>
+</html>

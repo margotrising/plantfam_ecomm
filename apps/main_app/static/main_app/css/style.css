@@ -1,0 +1,156 @@
+body {
+    background-color: #cccccc;
+    color: #333333;
+}
+
+.float-label-control, #plant-form { position: relative; margin-bottom: 1.5em; }
+.float-label-control ::-webkit-input-placeholder { color: transparent; }
+.float-label-control :-moz-placeholder { color: transparent; }
+.float-label-control ::-moz-placeholder { color: transparent; }
+.float-label-control :-ms-input-placeholder { color: transparent; }
+.float-label-control input:-webkit-autofill,
+.float-label-control textarea:-webkit-autofill { background-color: transparent !important; -webkit-box-shadow: 0 0 0 1000px white inset !important; -moz-box-shadow: 0 0 0 1000px white inset !important; box-shadow: 0 0 0 1000px white inset !important; }
+.float-label-control input, .float-label-control textarea, .float-label-control label { font-size: 1.3em; box-shadow: none; -webkit-box-shadow: none; }
+.float-label-control input:focus,
+.float-label-control textarea:focus { box-shadow: none; -webkit-box-shadow: none; border-bottom-width: 2px; padding-bottom: 0; }
+.float-label-control textarea:focus { padding-bottom: 4px; }
+.float-label-control input, .float-label-control textarea { display: block; width: 100%; padding: 0.1em 0em 1px 0em; border: none; border-radius: 0px; border-bottom: 1px solid #aaa; outline: none; margin: 0px; background: none; }
+.float-label-control textarea { padding: 0.1em 0em 5px 0em; }
+.float-label-control label { position: absolute; font-weight: normal; top: -1.0em; left: 0.08em; color: #aaaaaa; z-index: -1; font-size: 0.85em; -moz-animation: float-labels 300ms none ease-out; -webkit-animation: float-labels 300ms none ease-out; -o-animation: float-labels 300ms none ease-out; -ms-animation: float-labels 300ms none ease-out; -khtml-animation: float-labels 300ms none ease-out; animation: float-labels 300ms none ease-out; /* There is a bug sometimes pausing the animation. This avoids that.*/ animation-play-state: running !important; -webkit-animation-play-state: running !important; }
+.float-label-control input.empty + label,
+.float-label-control textarea.empty + label { top: 0.1em; font-size: 1.5em; animation: none; -webkit-animation: none; }
+.float-label-control input:not(.empty) + label,
+.float-label-control textarea:not(.empty) + label { z-index: 1; }
+.float-label-control input:not(.empty):focus + label,
+.float-label-control textarea:not(.empty):focus + label { color: #aaaaaa; }
+.float-label-control.label-bottom label { -moz-animation: float-labels-bottom 300ms none ease-out; -webkit-animation: float-labels-bottom 300ms none ease-out; -o-animation: float-labels-bottom 300ms none ease-out; -ms-animation: float-labels-bottom 300ms none ease-out; -khtml-animation: float-labels-bottom 300ms none ease-out; animation: float-labels-bottom 300ms none ease-out; }
+.float-label-control.label-bottom input:not(.empty) + label,
+.float-label-control.label-bottom textarea:not(.empty) + label { top: 3em; }
+
+
+@keyframes float-labels {
+    0% { opacity: 1; color: #aaa; top: 0.1em; font-size: 1.5em; }
+    20% { font-size: 1.5em; opacity: 0; }
+    30% { top: 0.1em; }
+    50% { opacity: 0; font-size: 0.85em; }
+    100% { top: -1em; opacity: 1; }
+}
+
+@-webkit-keyframes float-labels {
+    0% { opacity: 1; color: #aaa; top: 0.1em; font-size: 1.5em; }
+    20% { font-size: 1.5em; opacity: 0; }
+    30% { top: 0.1em; }
+    50% { opacity: 0; font-size: 0.85em; }
+    100% { top: -1em; opacity: 1; }
+}
+
+@keyframes float-labels-bottom {
+    0% { opacity: 1; color: #aaa; top: 0.1em; font-size: 1.5em; }
+    20% { font-size: 1.5em; opacity: 0; }
+    30% { top: 0.1em; }
+    50% { opacity: 0; font-size: 0.85em; }
+    100% { top: 3em; opacity: 1; }
+}
+
+@-webkit-keyframes float-labels-bottom {
+    0% { opacity: 1; color: #aaa; top: 0.1em; font-size: 1.5em; }
+    20% { font-size: 1.5em; opacity: 0; }
+    30% { top: 0.1em; }
+    50% { opacity: 0; font-size: 0.85em; }
+    100% { top: 3em; opacity: 1; }
+}
+
+input {
+
+    width: 100%;
+    padding: 14px 15px 15px 15px;
+    color: inherit;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    font-size: 14px;
+    background: #fff;
+    -webkit-appearance: none;
+}
+
+#plant-form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+    
+#btn-link {
+    color: white;
+}
+
+/* .product-wrapper {
+    display: inline-block;
+    vertical-align: top;
+    width: 33%;
+    margin-bottom: 90px;
+}
+
+.product-title {
+    margin-top: 20px;
+    
+}
+
+.product-wrapper img {
+    width: 100%;
+} */
+
+
+.product-wrapper a {
+    color: black;
+    text-decoration: none;
+
+}
+
+.product-wrapper a:hover {
+    text-decoration: none;
+    color: black;
+}
+
+/* Quick-zoom Container */
+.img-hover-zoom--quick-zoom img {
+    transform-origin: 0 .5;
+    transition: transform .25s, visibility .25s ease-in;
+}
+
+/* The Transformation */
+.img-hover-zoom--quick-zoom:hover img {
+transform: scale(2);
+}
+
+/* The Image container */
+.img-hover-zoom {
+    width: 325px; /* Modify this according to your need */
+    overflow: hidden; /* Removing this will break the effects */
+}
+
+#product-img img {
+    width: 100%;
+}
+
+#description {
+    text-align: left;
+    margin: 25px 50px;
+    padding-top: 25px;
+}
+
+@media (min-width: 768px) {
+    header.second .intro-text {
+        padding-top: 150px;
+        padding-bottom: 100px;
+    }
+    header.second .intro-text .intro-lead-in {
+        text-align: center;
+        font-size: 40px;
+        font-style: italic;
+        line-height: 40px;
+        margin-bottom: 25px;
+        font-family: 'Droid Serif', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    }
+}
+
+.messages {
+    color: red;
+}
